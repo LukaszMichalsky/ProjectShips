@@ -4,7 +4,8 @@
 AI::AI(Board*board)
 {
 	int f=1;
-	cout << "Ustwaiono statki o rozmiarze: ";
+	cout << "Great Armada is launching... "<<endl;
+	cout << "Seting ships :";
 	for(int i=4;i>1;i--)//size
 	{ 
 		for(int j=0;j<f;j++)//how
@@ -25,7 +26,7 @@ AI::AI(Board*board)
 	}//set 1 4-length, 2 3-length ships
 
 	int h = 0;
-	while (h < 3)
+	while (h < 4)
 	{
 		for (int x = 11; x > 1; x-=2)
 		{
@@ -42,15 +43,6 @@ AI::AI(Board*board)
 			}
 		}
 	}
-	cout << endl;
-	//system("cls");
+	system("cls");
 }
 
-bool AI::is_place(Board*board,int x,int y)
-{
-	for (int i = -1; i <= 1; i++)
-		for (int j = -1; j <= 1; j++)
-			if (board->boardtab[y + i][x + j] == 'O')
-				return false;
-	return true;
-}
