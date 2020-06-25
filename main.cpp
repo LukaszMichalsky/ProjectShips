@@ -9,23 +9,20 @@ int main()
 {
 
     //creating boards begin the game for player and AI
+    //Own - plansza gracza z jego statkami, tutaj strzela bot,enemy plansza ai tutaj strzela gracz,ai rozmieszczenie statkow bota
     Board PlayerBoardOwn = Board(), PlayerBoardEnemy = Board(), AIBoard = Board();
-    Ships bs = Ships(1,2,2,4);
-    Ships bs0 = Ships(1,3,2,2);
-    Ships bs1 = Ships(0, 5, 9, 1);
-    Ships bs2 = Ships(1, 9, 4, 3);
-   // AI SI;
-    PlayerBoardOwn.setShip(&bs);
-    PlayerBoardOwn.setShip(&bs0);
-    PlayerBoardOwn.setShip(&bs1);
-    PlayerBoardOwn.setShip(&bs2);
+    AI SI = AI(&AIBoard);
+   // AI Player = AI(&PlayerBoardOwn);
 
 
-    PlayerBoardOwn.Drawboard();
-   // PlayerBoardEnemy.Drawboard();
+    //PlayerBoardOwn.Drawboard();
+    //PlayerBoardEnemy.Drawboard();
+    AIBoard.Drawboard();
+
     
 
     //  system("cls");
     system("PAUSE");
     return 0;
+
 }

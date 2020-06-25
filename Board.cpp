@@ -39,7 +39,6 @@ void Board::setShip(Ships* i_src)
 	int x = i_src->get_X()+1;
 	int y = i_src->get_Y()+1;
 	int s = i_src->get_size();
-	if(!isColision(i_src))
 		if (i_src->get_vertical())
 		{//jezeli pion
 			for (int i = 0; i < s; i++)
@@ -68,8 +67,6 @@ bool Board::isColision(Ships* i_src)
 		if (y + s > 11)
 			return true;
 		
-		//if()//jezeli graniczy z bootom i right side
-		//else
 		for (int i = -1; i < s + 1; i++)
 			for (int j = -1; j <= 1; j++)
 				if (boardtab[y + i][x +j] == 'O')
@@ -80,11 +77,9 @@ bool Board::isColision(Ships* i_src)
 	{//X/poziom
 		if (x + s > 11)//check if ship is out of board
 			return true;
-		//if()//jezeli graniczy z bootom i right side
-		//else
+
 		for (int i = -1; i <= 1; i++)
 			for (int j = -1; j < s + 1; j++)
-
 				if (boardtab[y + i][x + j] == 'O')				
 					return true;
 	}
