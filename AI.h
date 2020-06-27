@@ -5,9 +5,17 @@
 
 class AI : public Some_functions
 {
+protected:
+	int lastX;//last shoting coords
+	int lastY;
+	int newX;
+	int newY;
+
 public:
-	//dodac konstruktor, algorytm losujacy funcje do loskierunku i polozenia
+	//contructor setting ships on board
 	AI(Board*board);
+
+	void shot();
 
 	
 };

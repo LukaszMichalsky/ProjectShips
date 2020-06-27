@@ -4,7 +4,6 @@
 AI::AI(Board*board)
 {
 	int f=1;
-	cout << "Great Armada is launching... "<<endl;
 	cout << "Seting ships :";
 	for(int i=4;i>1;i--)//size
 	{ 
@@ -28,7 +27,7 @@ AI::AI(Board*board)
 	int h = 0;
 	while (h < 4)
 	{
-		for (int x = 11; x > 1; x-=2)
+		for (int x = 11; x > 1; x-=1)
 		{
 			for (int y = 1; y < 11; y+=2)
 			{

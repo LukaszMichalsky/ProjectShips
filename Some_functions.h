@@ -15,8 +15,6 @@ public:
 	int randPosition()
 	{
 		srand(time(NULL));
-		//pos = char(rand() % 10 + 65);
-		//pos += char(rand() % 10 + 49);
 		return rand() % 10;
 	}
 };
