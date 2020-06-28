@@ -48,13 +48,28 @@ AI::AI(Board*board)
 
 void AI::shotingsystem(Board*board,int &score)
 {
+	do
+	{
+		newX = randPosition() + 1;//generate random cords
+		newY = randPosition() + 1;
+	} while (board->boardtab[newY][newX] == 'M' || board->boardtab[newY][newX] == 'X');
+
+	if (board->boardtab[newY][newX] == 'O')
+	{
+		board->boardtab[newY][newX] = 'X';
+		score++;
+	}
+	else
+		board->boardtab[newY][newX] = 'M';
+	
+	/*
 	if (!was_hit)//if miss beafore or first shot
 	{
 		do
 		{
 			newX = randPosition()+1;//generate random cords
 			newY = randPosition()+1;
-		} while (board->boardtab[newY][newX]=='M');
+		} while (board->boardtab[newY][newX]=='M'|| board->boardtab[newY][newX] == 'X');
 		
 		if (board->boardtab[newY][newX] == 'O')//and check is hit
 		{
@@ -73,16 +88,41 @@ void AI::shotingsystem(Board*board,int &score)
 	{
 		if (cheat(lastX,lastY,board))//if dont sunk
 		{
-			switch (randPosition()%4)
+			int pos = randPosition() % 4;
+
+			switch (pos)
 			{
-			case(0):
-
+			case(0)://one up
+				newY = lastY - 1;
+				newX = lastX;
 				break;
-			case(1):
-
+			case(1)://one right
+				newX = lastX + 1;
+				newY = lastY;
 				break;
-			case(2):
-			case(3):
+			case(2)://one down
+				newX = lastX;
+				newY = lastY + 1;
+				break;
+			case(3)://one left
+				newX = lastX - 1;
+				newY = lastY;
+				break;
+			}
+
+
+			if (board->boardtab[newY][newX] == 'O')//and check is hit
+			{
+				was_hit = true;
+				lastX = newX;
+				lastY = newY;
+				score++;
+				board->boardtab[newY][newX] = 'X';
+			}
+			else
+			{
+				board->boardtab[newY][newX] = 'M';
+				was_hit = false;
 			}
 		}
 		else
@@ -91,7 +131,7 @@ void AI::shotingsystem(Board*board,int &score)
 			{
 				newX = randPosition() + 1;//generate random cords
 				newY = randPosition() + 1;
-			} while (board->boardtab[newY][newX] == 'M');
+			} while (board->boardtab[newY][newX] == 'M' ||board->boardtab[newY][newX] == 'X');
 
 			if (board->boardtab[newY][newX] == 'O')//and check is hit
 			{
@@ -108,7 +148,7 @@ void AI::shotingsystem(Board*board,int &score)
 			}
 		}
 	}
-
+*/
 }
 
 

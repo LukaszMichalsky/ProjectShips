@@ -14,7 +14,7 @@ int enterX()
     {
         cout << "Enter X cordinate(0-9): ";
         cin >> x;
-    } while (x < 0 && x > 9);
+    } while (x < 0 || x > 9);
     return ++x;
 }
 
@@ -25,7 +25,7 @@ int enterY()
     {
         cout << "Enter Y cordinate(0-9): ";
         cin >> y;
-    } while (y < 0 && y > 9);
+    } while (y < 0 || y > 9);
     return ++y;
 }
 
@@ -41,7 +41,7 @@ int main()
 
     int AISscore = 0, PlayerScore = 0;
 
-    while (AISscore != 10 || PlayerScore != 10)
+    while (AISscore < 20 || PlayerScore < 20)
     {
 
         cout << "-=YOUR SCORE: "<<PlayerScore<<"=-  -=OPPONENT SCORE: "<<AISscore<< "=-"<<endl;
@@ -53,14 +53,12 @@ int main()
         int y=enterY();
         if (AIBoard.boardtab[y][x]=='O')//if hit 
         {
+
             PlayerScore++;
             PlayerBoardEnemy.boardtab[y][x] = 'X';
-            if (SI.cheat(x, y, &PlayerBoardEnemy))
-                cout << "Enemy ship on fire!" << endl;
-            else
-                cout << "Enemy ship destroy!" << endl;
+          
         }
-        else
+        else if(PlayerBoardEnemy.boardtab[y][x] != 'X')
         {
             PlayerBoardEnemy.boardtab[y][x] = 'M';
         }
@@ -73,7 +71,10 @@ int main()
     }
     
 
-    
+    if (AISscore == 10)
+        cout << "Game Over";
+    else
+        cout<<"WIN";
 
 
     return 0;
