@@ -14,7 +14,6 @@ public:
 
 	void setShip(Ships* i_src);
 	bool isColision(Ships* i_src);//if is colision return true, if else return false
-	void CleanDirtyBoar();
 	//functions
 	void Drawboard();
 

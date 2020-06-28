@@ -55,16 +55,17 @@ int main()
         {
             PlayerScore++;
             PlayerBoardEnemy.boardtab[y][x] = 'X';
+            if (SI.cheat(x, y, &PlayerBoardEnemy))
+                cout << "Enemy ship on fire!" << endl;
+            else
+                cout << "Enemy ship destroy!" << endl;
         }
         else
         {
             PlayerBoardEnemy.boardtab[y][x] = 'M';
         }
-        if (Player == 'O')
-        {
-            AISscore++;
-            PlayerBoardOwn.boardtab[]
-        }
+        
+        SI.shotingsystem(&PlayerBoardOwn,AISscore);
 
         
 

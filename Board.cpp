@@ -86,10 +86,3 @@ bool Board::isColision(Ships* i_src)
 	return false;
 }
 
-void Board::CleanDirtyBoar()
-{
-	for (int i = 1; i < 11; i++)
-		for (int j = 1; j < 11; j++)
-			if (boardtab[i][j] != 'O')
-				boardtab[i][j] = ' ';
-}

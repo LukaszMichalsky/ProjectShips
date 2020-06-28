@@ -3,6 +3,7 @@
 #include <ctime>
 #include <cstdlib>
 
+
 class Some_functions
 {
 public:
@@ -11,6 +12,8 @@ public:
 		srand(time(NULL));
 		return rand() % 2;
 	}
+
+
 
 	int randPosition()
 	{
