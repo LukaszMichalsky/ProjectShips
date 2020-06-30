@@ -2,7 +2,7 @@
 #include "AI.h"
 
 AI::AI(Board*board)
-	:lastX(-1),lastY(-1),newX(0),newY(0),was_hit(false)
+	:newX(0),newY(0)
 {
 	int f=1;
 	cout << "Seting ships :";
@@ -48,11 +48,36 @@ AI::AI(Board*board)
 
 void AI::shotingsystem(Board*board,int &score)
 {
+
+	int tk = 0;
 	do
 	{
 		newX = randPosition() + 1;//generate random cords
 		newY = randPosition() + 1;
+
+		++tk;
+		if (tk > 500)
+		{
+			break;
+		}
+
 	} while (board->boardtab[newY][newX] == 'M' || board->boardtab[newY][newX] == 'X');
+	if (tk > 500) {//mechanizm ma wskazac nastepne wolne pole, by skrocic czas oczekiwania na ruch bota
+		bool br = false;
+		for (int i = 1; i < 11; i++)
+		{
+			if (!br)
+				break;
+			for (int j = 1; j < 11; j++)
+				if (board->boardtab[i][j] != 'X' && board->boardtab[i][j] != 'M')
+				{
+					newX = i;
+					newY = j;
+					br = true;
+					break;
+				}
+		}
+	}
 
 	if (board->boardtab[newY][newX] == 'O')
 	{

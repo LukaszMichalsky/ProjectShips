@@ -6,7 +6,7 @@
 
 class Some_functions
 {
-public:
+	protected:
 	int randDirection()
 	{
 		srand(time(NULL));
